@@ -32,12 +32,17 @@ class Server {
         // CORS
         this.app.use( cors() );
 
+        this.app.use(express.static('public'));
         //Parseo del body
         this.app.use(express.json());
 
         //Api ENDpoints
         this.app.use('/api/login', require('../router/auth'))
         this.app.use('/api/messages', require('../router/message'))
+
+        this.app.get('*', (req, res) =>{
+            res.sendFile(__dirname + '/public/index.html');
+        })
 
     }
 
