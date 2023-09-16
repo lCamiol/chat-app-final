@@ -39,9 +39,11 @@ class Server {
         //Api ENDpoints
         this.app.use('/api/login', require('../router/auth'))
         this.app.use('/api/messages', require('../router/message'))
-        this.app.get('*', (req, res) =>{
-            res.sendFile( 'E:/React-Socket/05-chat-app/chat-server/public/index.html')
-        })
+
+        this. app.get("*", (req, res) => {
+            let url = path.join(__dirname, '../public', 'index.html');
+            res.sendFile(url);
+          });
     }
 
     // Esta configuración se puede tener aquí o como propieda de clase
