@@ -31,6 +31,7 @@ const createUser = async (req, res = response) => {
 
         res.json({
             ok: true,
+            msg: 'registro exitoso',
             user,
             token
         })
